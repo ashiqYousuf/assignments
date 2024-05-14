@@ -6,7 +6,27 @@
 */
 
 function countVowels(str) {
-    // Your code here
+  // Your code here
+  let vowelsCount = 0;
+  for (let index = 0; index < str.length; index++) {
+    const c = str[index];
+    if (
+      c == "a" ||
+      c == "A" ||
+      c == "E" ||
+      c == "e" ||
+      c == "I" ||
+      c == "i" ||
+      c == "O" ||
+      c == "o" ||
+      c == "U" ||
+      c == "u"
+    ) {
+      vowelsCount++;
+    }
+  }
+
+  return vowelsCount;
 }
 
 module.exports = countVowels;
