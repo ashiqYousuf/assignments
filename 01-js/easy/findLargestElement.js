@@ -6,7 +6,15 @@
 */
 
 function findLargestElement(numbers) {
-    
+    if (!Array.isArray(numbers)) {
+        throw Error(`Array required passed ${typeof numbers}`)
+    }
+
+    if (!numbers.length) {
+        return undefined
+    }
+
+    return Math.max(...numbers)
 }
 
 module.exports = findLargestElement;

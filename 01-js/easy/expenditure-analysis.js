@@ -14,7 +14,32 @@
 */
 
 function calculateTotalSpentByCategory(transactions) {
-  return [];
+  if (!Array.isArray(transactions) || !transactions.length) return []
+
+  const categoryCosts = transactions.reduce((hashMap, transObj) => {
+    const category = transObj.category
+
+    if (category in hashMap) {
+      let obj = hashMap[category]
+      obj.totalSpent += transObj.price
+      hashMap[category] = obj
+    } else {
+      hashMap[category] = {
+        category: category,
+        totalSpent: transObj.price
+      }
+    }
+
+    return hashMap
+  }, {})
+
+  let output = []
+
+  for (let key in categoryCosts) {
+    output.push(categoryCosts[key])
+  }
+
+  return output
 }
 
 module.exports = calculateTotalSpentByCategory;
